@@ -112,3 +112,81 @@ CREATE TABLE `valores_productos` (
         FOREIGN KEY (`id_atributo`)
         REFERENCES `atributos`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- =========================
+-- ROPA DE HOMBRE (5 registros)
+-- =========================
+
+INSERT INTO productos VALUES (1, 'Polo Casual', 1);
+INSERT INTO valores_productos (producto_id, atributo_id, valor) VALUES
+(1, 1, 'Lacoste'),
+(1, 2, 'Rojo'),
+(1, 3, 'L');
+
+INSERT INTO productos VALUES (3, 'Camisa Formal', 1);
+INSERT INTO valores_productos (producto_id, atributo_id, valor) VALUES
+(3, 1, 'Tommy Hilfiger'),
+(3, 2, 'Blanco'),
+(3, 3, 'M');
+
+INSERT INTO productos VALUES (4, 'Casaca Deportiva', 1);
+INSERT INTO valores_productos (producto_id, atributo_id, valor) VALUES
+(4, 1, 'Adidas'),
+(4, 2, 'Negro'),
+(4, 3, 'XL');
+
+INSERT INTO productos VALUES (5, 'Pantalón Jeans', 1);
+INSERT INTO valores_productos (producto_id, atributo_id, valor) VALUES
+(5, 1, 'Levis'),
+(5, 2, 'Azul'),
+(5, 3, '32');
+
+INSERT INTO productos VALUES (6, 'Short Verano', 1);
+INSERT INTO valores_productos (producto_id, atributo_id, valor) VALUES
+(6, 1, 'Nike'),
+(6, 2, 'Gris'),
+(6, 3, 'M');
+
+-- =========================
+-- TELÉFONOS (5 registros)
+-- =========================
+
+INSERT INTO productos VALUES (2, 'Smartphone X1', 2);
+INSERT INTO valores_productos (producto_id, atributo_id, valor) VALUES
+(2, 1, 'Samsung'),
+(2, 4, '2025'),
+(2, 5, 'Android 15'),
+(2, 6, '256GB'),
+(2, 2, 'Azul');
+
+INSERT INTO productos VALUES (7, 'iPhone 16', 2);
+INSERT INTO valores_productos (producto_id, atributo_id, valor) VALUES
+(7, 1, 'Apple'),
+(7, 4, '2025'),
+(7, 5, 'iOS 19'),
+(7, 6, '128GB'),
+(7, 2, 'Negro');
+
+INSERT INTO productos VALUES (8, 'Galaxy S25', 2);
+INSERT INTO valores_productos (producto_id, atributo_id, valor) VALUES
+(8, 1, 'Samsung'),
+(8, 4, '2025'),
+(8, 5, 'Android 15'),
+(8, 6, '512GB'),
+(8, 2, 'Plata');
+
+INSERT INTO productos VALUES (9, 'Xiaomi 15 Pro', 2);
+INSERT INTO valores_productos (producto_id, atributo_id, valor) VALUES
+(9, 1, 'Xiaomi'),
+(9, 4, '2025'),
+(9, 5, 'Android 15'),
+(9, 6, '256GB'),
+(9, 2, 'Verde');
+
+INSERT INTO productos VALUES (10, 'Moto Edge 60', 2);
+INSERT INTO valores_productos (producto_id, atributo_id, valor) VALUES
+(10, 1, 'Motorola'),
+(10, 4, '2025'),
+(10, 5, 'Android 15'),
+(10, 6, '256GB'),
+(10, 2, 'Morado');
