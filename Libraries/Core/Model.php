@@ -2,7 +2,8 @@
 
 class Model extends Conexion {
 
-    protected $table;
+    public $table;
+    public $tableAlias = '';
     protected $primaryKey = 'id';
 
     protected $select = '*';
@@ -102,7 +103,8 @@ class Model extends Conexion {
     } 
 
     public function get() {
-        $sql = "SELECT $this->select FROM $this->table ";
+        $from = !empty($this->tableAlias) ? "$this->table $this->tableAlias" : $this->table;
+        $sql = "SELECT $this->select FROM $from ";
         //Joins
         if (!empty($this->joins)) {
             $sql .= implode(" ", $this->joins) . " ";
@@ -132,6 +134,7 @@ class Model extends Conexion {
 
     private function resetQuery() {
         $this->select = '*';
+        $this->tableAlias = '';
         $this->joins = [];
         $this->whereBuilder = [];
         $this->whereParams = [];
