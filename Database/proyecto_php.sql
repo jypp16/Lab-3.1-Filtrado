@@ -63,10 +63,52 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
+
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+CREATE TABLE `categorias` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(100) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE `productos` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(150) NOT NULL,
+    `id_categoria` INT(11) NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk_producto_categoria`
+        FOREIGN KEY (`id_categoria`)
+        REFERENCES `categorias`(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE `atributos` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(100) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `valores_productos` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `id_producto` INT(11) NOT NULL,
+    `id_atributo` INT(11) NOT NULL,
+    `valor` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk_valor_producto`
+        FOREIGN KEY (`id_producto`)
+        REFERENCES `productos`(`id`),
+    CONSTRAINT `fk_valor_atributo`
+        FOREIGN KEY (`id_atributo`)
+        REFERENCES `atributos`(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
